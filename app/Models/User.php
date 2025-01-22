@@ -12,6 +12,12 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    const ADMIN_ROLE = 'admin';
+
+    public function isAdmin(){
+        return $this -> role === self::ADMIN_ROLE;
+    }
+
     protected $fillable = [
         'login',
         'name',
@@ -22,11 +28,6 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
