@@ -14,6 +14,8 @@ class Report extends Model
         'date',
         'payment',
         'service_id',
+        'user_id',
+        'status'
     ];
 
     public function user() : BelongsTo {

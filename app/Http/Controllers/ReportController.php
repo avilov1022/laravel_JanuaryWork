@@ -26,16 +26,35 @@ class ReportController extends Controller
             'date' => ['required', 'date'],
             'time' => ['required', 'date_format:H:i'],
             'payment' => ['required', 'string', 'max:255'],
-            'service_id' => ['required']  
+            'service_id' => ['required'],
         ]);
+       
 
         Report::create([
             'address' => $request->address,
             'time' => $request->time,
             'date' => $request -> date,
             'payment' => $request -> payment,
-            'service_id' => $request ->service_id
+            'service_id' => $request ->service_id,
+            'user_id' => Auth::user()->id  
         ]);
+
+        return redirect()->back();
+
+    }
+
+    public function update(Request $request) {
+        $request->validate([
+            'status' => ['required'],
+            'id' => ['required']
+        ]);
+        // dd($request);
+
+        Report::where('id', $request->id)->update([
+            'status' => $request->status,
+        ]);
+        
+        return redirect()->back();
     }
 
 

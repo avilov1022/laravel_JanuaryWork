@@ -31,7 +31,6 @@
                             <x-text-input id="date" class="block mt-1 w-full" type="date" name="date" required />
                             <x-input-error :messages="$errors->get('date')" class="mt-2" />
                         </div>
-
                         
                         <!-- Payment -->
                         <div class="mt-4">

@@ -19,6 +19,24 @@
                             <p>{{ $report->contact }}</p>
                             <p>{{ $report->date }}</p>
                             <p>{{ $report->service_id }}</p>
+                            @if($report->status=='новая')
+                                <form id="form-update-{{$report->id}}" action="{{route('reports.update')}}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" name="id" value="{{$report->id}}">
+
+                                    <select name="status"> 
+                                        <option value="новая">новая</option>
+                                        <option value="оказана">оказана</option>
+                                        <option value="отменена">отменена</option>
+                                    </select>
+
+                                    <button type="submit">Отправить</button>
+                                </form>
+                            @else
+                                <p>{{ $report -> status}}</p>
+                            @endif
+
                         </div>
                     @endforeach
                 </div>
