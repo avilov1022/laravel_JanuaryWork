@@ -53,7 +53,7 @@
                             </select>
                         </div>
 
-                        <button type="submit">Создать</button>
+                        <button type="submit" class="border p-[7px] mt-[15px]">Создать</button>
                     </form>
                 </div>
             </div>

@@ -39,7 +39,7 @@ class ReportController extends Controller
             'user_id' => Auth::user()->id  
         ]);
 
-        return redirect()->back();
+        return redirect()->route('reports.index');
 
     }
 
